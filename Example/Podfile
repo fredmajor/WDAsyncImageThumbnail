@@ -1,11 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :osx, '10.9'
-use_frameworks!
-
 
 target 'WDAsyncImageThumbnail_Tests', :exclusive => true do
   pod "WDAsyncImageThumbnail", :path => "../"
-
-  pod 'Specta'
+  pod 'OCMock', :inhibit_warnings => true
   pod 'Expecta'
 end

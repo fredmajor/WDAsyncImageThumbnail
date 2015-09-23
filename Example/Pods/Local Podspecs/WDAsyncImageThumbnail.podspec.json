@@ -1,7 +1,7 @@
 {
   "name": "WDAsyncImageThumbnail",
   "version": "0.1.0",
-  "summary": "Load an image or video thumbnail in background.",
+  "summary": "Load an image or video thumbnail in background on OSX.",
   "description": "This small library loads a thumbnail of a file (photo or video) in a\nbackground thread and calls u back on the main thread. Features caching usning NSCache\nclass what is nice when loading thumbnails from remote filesystems.",
   "homepage": "https://github.com/fredmajor/WDAsyncImageThumbnail",
   "license": "MIT",

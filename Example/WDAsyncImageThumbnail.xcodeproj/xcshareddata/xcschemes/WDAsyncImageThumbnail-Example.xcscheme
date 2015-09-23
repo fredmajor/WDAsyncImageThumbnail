@@ -37,6 +37,11 @@
                BlueprintName = "WDAsyncImageThumbnail_Tests"
                ReferencedContainer = "container:WDAsyncImageThumbnail.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "InitialSpecsSpec">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
