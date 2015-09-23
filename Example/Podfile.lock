@@ -1,0 +1,20 @@
+PODS:
+  - Expecta (1.0.3)
+  - Specta (1.0.4)
+  - WDAsyncImageThumbnail (0.1.0)
+
+DEPENDENCIES:
+  - Expecta
+  - Specta
+  - WDAsyncImageThumbnail (from `../`)
+
+EXTERNAL SOURCES:
+  WDAsyncImageThumbnail:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Expecta: 9d1bff6c8b0eeee73a166a2ee898892478927a15
+  Specta: 69bb134672aae190a1379ff91df07dad8dd1f869
+  WDAsyncImageThumbnail: 6d22e76eecb79ebd31db88507f8e65bed3ff8a91
+
+COCOAPODS: 0.39.0.beta.3
