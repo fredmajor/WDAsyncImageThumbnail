@@ -1,10 +1,5 @@
 # WDAsyncImageThumbnail
 
-[![CI Status](http://img.shields.io/travis/Fred/WDAsyncImageThumbnail.svg?style=flat)](https://travis-ci.org/Fred/WDAsyncImageThumbnail)
-[![Version](https://img.shields.io/cocoapods/v/WDAsyncImageThumbnail.svg?style=flat)](http://cocoapods.org/pods/WDAsyncImageThumbnail)
-[![License](https://img.shields.io/cocoapods/l/WDAsyncImageThumbnail.svg?style=flat)](http://cocoapods.org/pods/WDAsyncImageThumbnail)
-[![Platform](https://img.shields.io/cocoapods/p/WDAsyncImageThumbnail.svg?style=flat)](http://cocoapods.org/pods/WDAsyncImageThumbnail)
-
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
