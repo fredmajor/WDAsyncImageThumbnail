@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		298A672DBD2277F7E552FA3B /* libPods-WDAsyncImageThumbnail_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55037940EE3C1B1678805E81 /* libPods-WDAsyncImageThumbnail_Tests.a */; };
 		586357421BB348BF00197A9A /* WDAsyncImageThumbnailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 586357411BB348BF00197A9A /* WDAsyncImageThumbnailTests.m */; };
 		586357441BB348CA00197A9A /* testPics in Resources */ = {isa = PBXBuildFile; fileRef = 586357431BB348CA00197A9A /* testPics */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
+		8BC35C136A360C5C6A940A37 /* Pods_WDAsyncImageThumbnail_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE3D35DB47555FBBDCF47A7 /* Pods_WDAsyncImageThumbnail_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		487812214DE8C0B6CC95AF45 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		55037940EE3C1B1678805E81 /* libPods-WDAsyncImageThumbnail_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WDAsyncImageThumbnail_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		586357411BB348BF00197A9A /* WDAsyncImageThumbnailTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDAsyncImageThumbnailTests.m; sourceTree = "<group>"; };
 		586357431BB348CA00197A9A /* testPics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testPics; sourceTree = "<group>"; };
 		5C3A70D912CF862071D8317B /* Pods-WDAsyncImageThumbnail_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WDAsyncImageThumbnail_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WDAsyncImageThumbnail_Tests/Pods-WDAsyncImageThumbnail_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -31,6 +30,7 @@
 		7B1EA138D463DD2A0382AFB3 /* WDAsyncImageThumbnail.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = WDAsyncImageThumbnail.podspec; path = ../WDAsyncImageThumbnail.podspec; sourceTree = "<group>"; };
 		8EFA6564E386CAE449E37287 /* Pods-WDAsyncImageThumbnail_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WDAsyncImageThumbnail_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WDAsyncImageThumbnail_Tests/Pods-WDAsyncImageThumbnail_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF52ED9B9DB7D7305E5A070D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		DBE3D35DB47555FBBDCF47A7 /* Pods_WDAsyncImageThumbnail_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WDAsyncImageThumbnail_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,7 @@
 			files = (
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				298A672DBD2277F7E552FA3B /* libPods-WDAsyncImageThumbnail_Tests.a in Frameworks */,
+				8BC35C136A360C5C6A940A37 /* Pods_WDAsyncImageThumbnail_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +73,7 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				55037940EE3C1B1678805E81 /* libPods-WDAsyncImageThumbnail_Tests.a */,
+				DBE3D35DB47555FBBDCF47A7 /* Pods_WDAsyncImageThumbnail_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = WD;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Fred;
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -290,7 +290,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -323,7 +323,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -333,18 +333,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8EFA6564E386CAE449E37287 /* Pods-WDAsyncImageThumbnail_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WDAsyncImageThumbnail_Example.app/WDAsyncImageThumbnail_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -354,14 +352,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C3A70D912CF862071D8317B /* Pods-WDAsyncImageThumbnail_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WDAsyncImageThumbnail_Example.app/WDAsyncImageThumbnail_Example";
 				WRAPPER_EXTENSION = xctest;
 			};

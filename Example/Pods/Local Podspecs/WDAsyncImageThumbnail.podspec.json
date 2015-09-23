@@ -13,13 +13,10 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "osx": "10.9"
+    "osx": "10.10"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "WDAsyncImageThumbnail": [
-      "Pod/Assets/*.png"
-    ]
+  "osx": {
+    "source_files": "Pod/Classes/**/*"
   }
 }
