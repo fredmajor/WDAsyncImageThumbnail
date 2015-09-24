@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6003F589195388D20070C39A"
+               BlueprintIdentifier = "58F096481BB3DA2F0061199C"
                BuildableName = "WDAsyncImageThumbnail_Example.app"
                BlueprintName = "WDAsyncImageThumbnail_Example"
+               ReferencedContainer = "container:WDAsyncImageThumbnail.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "58F0965A1BB3DA300061199C"
+               BuildableName = "WDAsyncImageThumbnail_ExampleTests.xctest"
+               BlueprintName = "WDAsyncImageThumbnail_ExampleTests"
                ReferencedContainer = "container:WDAsyncImageThumbnail.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,11 +57,21 @@
                </Test>
             </SkippedTests>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "58F0965A1BB3DA300061199C"
+               BuildableName = "WDAsyncImageThumbnail_ExampleTests.xctest"
+               BlueprintName = "WDAsyncImageThumbnail_ExampleTests"
+               ReferencedContainer = "container:WDAsyncImageThumbnail.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
+            BlueprintIdentifier = "58F096481BB3DA2F0061199C"
             BuildableName = "WDAsyncImageThumbnail_Example.app"
             BlueprintName = "WDAsyncImageThumbnail_Example"
             ReferencedContainer = "container:WDAsyncImageThumbnail.xcodeproj">
@@ -67,7 +91,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
+            BlueprintIdentifier = "58F096481BB3DA2F0061199C"
             BuildableName = "WDAsyncImageThumbnail_Example.app"
             BlueprintName = "WDAsyncImageThumbnail_Example"
             ReferencedContainer = "container:WDAsyncImageThumbnail.xcodeproj">
@@ -86,7 +110,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
+            BlueprintIdentifier = "58F096481BB3DA2F0061199C"
             BuildableName = "WDAsyncImageThumbnail_Example.app"
             BlueprintName = "WDAsyncImageThumbnail_Example"
             ReferencedContainer = "container:WDAsyncImageThumbnail.xcodeproj">
