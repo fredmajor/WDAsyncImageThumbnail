@@ -1,13 +1,41 @@
 # WDAsyncImageThumbnail
+This tiny project is here to load a thumbnail of a media file - image or video - on a background thread. Once the thumbnail is loaded, it calls back the provided block on a main thread. The code uses system APIs and should be very fast, though I don't have any numbers on the performance. I use [UTIs](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html) to check media file type. 
+I use **dispatch_groups** so you can easly wait for a bunch of load tasks until they all complete. You can set how many load operations you want to run together in parallel. (Now there is no convinient API for that, just change a constant value if you wish. Pull requests very welcome.)
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo, and run `pod install` from the Example directory first. The test project is called **WDAsyncImageThumbnail_Example**.
+See the test class (WDAsyncImageThumbnailTest) to see how to use the code. NSCache instance is required. Summary below.
 
-### 
+### Load an image
+````objective-c
+NSCache *myCache = [[NSCache alloc]init];
+NSURL *pic1URL = [myBundle URLForResource:@"testPics/0.JPG" withExtension:nil];
+WDAsyncImageThumbnail *image = [WDAsyncImageThumbnail imageWithImageCache:myCache imageURL:pic1URL];
+[im1 loadImageWithCallbackBlock:^(CGImageRef aImageRef, NSError *aError){
+	//handler here, e.g.
+    NSImage *im = [[NSImage alloc]initWithCGImage:aImageRef size:NSZeroSize];
+}];
+```
 
+### Load with optional cancellation
+Loading a thumbnail is an expensive IO operation and in certain cases you might want to cancell a scheduled load before it starts. (Let's say the image was to be presented in a grid but it is already scrolled away and is not visible anymore). You can use **WDAsyncImageThumbnailDelegate** for that. See the provided example project for more details. (Actually there's no more details :) )
 
-## Requirements
+````objective-c
+WDAsyncImageThumbnail *imageThumbnail = [WDAsyncImageThumbnail imageWithImageCache:cache imageURL:fileUrl];
+imageThumbnail.delegate = self;
+[imageThumbnail loadImageWithCallbackBlock:^(CGImageRef aImageRef, NSError *aError) {
+	self.image.image = [[NSImage alloc]initWithCGImage:aImageRef size:NSZeroSize];
+}];
+    
+    ---------
+    
+#pragma mark - WDAsyncImageThumbnailDelegate
+- (BOOL)imageWillLoad:(WDAsyncImageThumbnail *)aImage{
+    NSLog(@"Image will laod now. Return NO to stop the load and save your IO.");
+    return NO;
+}
+```
 
 ## Installation
 

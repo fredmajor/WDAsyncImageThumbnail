@@ -14,7 +14,7 @@ FOUNDATION_EXPORT const unsigned char WDAsyncImageThumbnailVersionString[];
 
 @protocol WDAsyncImageThumbnailDelegate <NSObject>
 
-@required
+@optional
 /**
  * Returning NO cancels the load.
  */
