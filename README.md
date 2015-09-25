@@ -1,6 +1,6 @@
 # WDAsyncImageThumbnail
-This tiny project is here to load a thumbnail of a media file - image or video - on a background thread. Once the thumbnail is loaded, it calls back the provided block on a main thread. The code uses system APIs and should be very fast, though I don't have any numbers on the performance. I use [UTIs](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html) to check media file type. 
-I use **dispatch_groups** so you can easly wait for a bunch of load tasks until they all complete. You can set how many load operations you want to run together in parallel. (Now there is no convinient API for that, just change a constant value if you wish. Pull requests very welcome.)
+This tiny project is here to load a thumbnail of a media file - image or video - on a background thread. Once the thumbnail is loaded, it calls back the provided block on the main thread. The code uses system APIs and should be very fast, though I don't have any numbers on the performance. I use [UTIs](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html) to check the media file type. 
+I use **dispatch_groups** so you can easly wait for a bunch of load tasks until they all complete. You can set how many load operations you want to run together in parallel. (Now there is no convinient API for that, just change a constant value if you wish. Pull requests very welcome.) The code seems to be well synchronized and I have not found any memory leaks.
 
 ## Usage
 
@@ -34,6 +34,51 @@ imageThumbnail.delegate = self;
 - (BOOL)imageWillLoad:(WDAsyncImageThumbnail *)aImage{
     NSLog(@"Image will laod now. Return NO to stop the load and save your IO.");
     return NO;
+}
+```
+
+### Wait for a bunch of load tasks untill all are completed
+This sort of stuff sooner or later causes headaches in Objective-C. So I use dispatch_groups. See the test class for more details. In a nutshell:
+
+````objective-c
+dispatch_group_t dispatchGroup = dispatch_group_create();
+[WDAsyncImageThumbnail setDispatchGroup:dispatchGroup];
+WDAsyncImageThumbnail *im1 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic1URL];
+WDAsyncImageThumbnail *im2 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic2URL];
+WDAsyncImageThumbnail *im3 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic3URL];
+    
+dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
+	NSLog(@"All tasks finished!");
+});
+```
+
+or if you want to go with busy-waiting... (also see the test class for more details)
+
+````objective-c
+//somewhere...
+dispatch_group_t dispatchGroup = dispatch_group_create();
+
+- (void)someMethod{
+    [WDAsyncImageThumbnail setDispatchGroup:dispatchGroup];
+    WDAsyncImageThumbnail *im1 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic1URL];
+    WDAsyncImageThumbnail *im2 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic2URL];
+    WDAsyncImageThumbnail *im3 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic3URL];
+    [self waitForGroup];
+    NSLog(@"When you see this text, all loads are already finished.");
+}
+----
+- (void)waitForGroup{
+    __block BOOL didComplete = NO;
+    dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
+        didComplete = YES;
+    });
+    while( !didComplete ){
+        NSTimeInterval const interval = 0.002;
+        if( ![[NSRunLoop currentRunLoop]
+                runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:interval]] ){
+            [NSThread sleepForTimeInterval:interval];
+        }
+    }
 }
 ```
 
