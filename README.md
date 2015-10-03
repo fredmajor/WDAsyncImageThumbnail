@@ -1,6 +1,6 @@
 # WDAsyncImageThumbnail
-This tiny project is here to load a thumbnail of a media file - image or video - on a background thread. Once the thumbnail is loaded, it calls back the provided block on the main thread. The code uses system APIs and should be very fast, though I don't have any numbers on the performance. I use [UTIs](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html) to check the media file type. 
-I use **dispatch_groups** so you can easly wait for a bunch of load tasks until they all complete. You can set how many load operations you want to run together in parallel. (Now there is no convinient API for that, just change a constant value if you wish. Pull requests very welcome.) The code seems to be well synchronized and I have not found any memory leaks.
+This tiny project is here to load thumbnails of a media files - image or video - on a bunch of background threads. Once a thumbnail is loaded, you receive a callback on the main thread. The code uses system APIs and should be very fast, though I don't have any numbers on the performance. I use [UTIs](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html) to check the media file type. 
+I use **dispatch_groups** so you can easly wait for a bunch of load tasks until they all complete. You can set how many load operations you want to run together in parallel. (Now there is no convinient API for that, just change a constant value if you wish. Pull requests very welcome.) The code seems to be well synchronized and I have not found any memory leaks. There is a test class witch a bunch of test cases to make contributions easier.
 
 ## Usage
 
@@ -46,13 +46,16 @@ dispatch_group_t dispatchGroup = dispatch_group_create();
 WDAsyncImageThumbnail *im1 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic1URL];
 WDAsyncImageThumbnail *im2 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic2URL];
 WDAsyncImageThumbnail *im3 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic3URL];
+[im1 loadImageWithCallbackBlock:^(CGImageRef aImageRef, NSError *aError) { /*your handler*/ }];
+[im2 loadImageWithCallbackBlock:^(CGImageRef aImageRef, NSError *aError) { /*your handler*/ }];
+[im3 loadImageWithCallbackBlock:^(CGImageRef aImageRef, NSError *aError) { /*your handler*/ }];
     
 dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
-	NSLog(@"All tasks finished!");
+	NSLog(@"All tasks finished! This is called async after all images are loaded.");
 });
 ```
 
-or if you want to go with busy-waiting... (also see the test class for more details)
+or if you want to wait synchronously.. (also see the test class for more details)
 
 ````objective-c
 //somewhere...
@@ -63,6 +66,9 @@ dispatch_group_t dispatchGroup = dispatch_group_create();
     WDAsyncImageThumbnail *im1 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic1URL];
     WDAsyncImageThumbnail *im2 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic2URL];
     WDAsyncImageThumbnail *im3 = [WDAsyncImageThumbnail imageWithImageCache:imageCache imageURL:pic3URL];
+    [im1 loadImageWithCallbackBlock:^(CGImageRef aImageRef, NSError *aError) { /*your handler*/ }];
+	[im2 loadImageWithCallbackBlock:^(CGImageRef aImageRef, NSError *aError) { /*your handler*/ }];
+	[im3 loadImageWithCallbackBlock:^(CGImageRef aImageRef, NSError *aError) { /*your handler*/ }];
     [self waitForGroup];
     NSLog(@"When you see this text, all loads are already finished.");
 }
@@ -93,7 +99,8 @@ pod "WDAsyncImageThumbnail"
 
 ## Author
 
-Fred, major.freddy@yahoo.com
+Fred, 
+major.freddy {aaatttt} yahoo {doot} com
 
 ## License
 

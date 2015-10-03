@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "WDAsyncImageThumbnail"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "Load an image or video thumbnail in background on OSX."
 
   s.description      = <<-DESC
