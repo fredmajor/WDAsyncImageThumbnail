@@ -15,7 +15,7 @@ WDAsyncImageThumbnail *image = [WDAsyncImageThumbnail imageWithImageCache:myCach
 [im1 loadImageWithCallbackBlock:^(CGImageRef aImageRef, NSError *aError){
 	//handler here, e.g.
     NSImage *im = [[NSImage alloc]initWithCGImage:aImageRef size:NSZeroSize];
-}];
+}]; 
 ```
 
 ### Load with optional cancellation
