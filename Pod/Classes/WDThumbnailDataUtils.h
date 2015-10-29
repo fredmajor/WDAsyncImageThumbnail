@@ -2,7 +2,7 @@
 
 #define WD_ASYNC_IMAGE_ERROR_DOMAIN @"WD_ASYNC_IMAGE_ERROR_DOMAIN"
 
-@interface WDDataUtils : NSObject{}
+@interface WDThumbnailDataUtils : NSObject{}
 
 #pragma mark - UTIs
 

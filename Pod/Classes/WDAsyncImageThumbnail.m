@@ -1,5 +1,5 @@
 #import "WDAsyncImageThumbnail.h"
-#import "WDDataUtils.h"
+#import "WDThumbnailDataUtils.h"
 
 @interface WDAsyncImageThumbnail ()
 
@@ -210,15 +210,15 @@ static int64_t testC = 0;
                     if( [strongSelf WD_handleLoadCancellation:strongSelf] ){return;}
 
                     NSLog(@"actual load will start for pic=%@", [strongSelf.imageURL lastPathComponent]);
-                    if( [WDDataUtils isFilePhoto:strongSelf.imageURL] ){
+                    if( [WDThumbnailDataUtils isFilePhoto:strongSelf.imageURL] ){
                         NSError *imageLoadErr;
-                        pic = [WDDataUtils newThumbnailForImage:strongSelf.imageURL
+                        pic = [WDThumbnailDataUtils newThumbnailForImage:strongSelf.imageURL
                                            heigth:wdCollectionThumbnailMaxSize
                                            error:&imageLoadErr];
                         if( imageLoadErr ) error = imageLoadErr;
-                    }else if( [WDDataUtils isFileVideo:strongSelf.imageURL] ){
+                    }else if( [WDThumbnailDataUtils isFileVideo:strongSelf.imageURL] ){
                         NSError *videoLoadErr;
-                        pic = [WDDataUtils newThumbnailForVideo:strongSelf.imageURL error:&videoLoadErr];
+                        pic = [WDThumbnailDataUtils newThumbnailForVideo:strongSelf.imageURL error:&videoLoadErr];
                         if( videoLoadErr ) error = videoLoadErr;
                     }else{
                         NSLog(@"File neither photo nor video. File url=%@", strongSelf.imageURL);

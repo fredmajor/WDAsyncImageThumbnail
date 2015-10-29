@@ -1,7 +1,7 @@
-#import "WDDataUtils.h"
+#import "WDThumbnailDataUtils.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface WDDataUtils ()
+@interface WDThumbnailDataUtils ()
 
 #pragma mark - UTIs
 
@@ -13,7 +13,7 @@
 
 @end
 
-@implementation WDDataUtils
+@implementation WDThumbnailDataUtils
 
 #pragma mark UTI file types analysis
 

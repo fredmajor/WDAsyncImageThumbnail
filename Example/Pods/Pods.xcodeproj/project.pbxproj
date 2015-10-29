@@ -82,7 +82,7 @@
 		6F7C2069CECE06F4C14826CE9BEC5626 /* OCMVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 130C636C9543595D63295207A5763201 /* OCMVerifier.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7147DB893C12036D07A26DD16C83F198 /* Expecta.h in Headers */ = {isa = PBXBuildFile; fileRef = FB7B525DB4FF0A54EC20D179D40EB90F /* Expecta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		755966CE6889FE3988E613F161E02289 /* NSNotificationCenter+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D08C401683BB83ECABE3EC2F9E31606 /* NSNotificationCenter+OCMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		75E7E0E10BBD6C2C206633A6A5A94BB8 /* WDDataUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8299AFD321027A9C175F5D5DB93D0B /* WDDataUtils.m */; };
+		75E7E0E10BBD6C2C206633A6A5A94BB8 /* WDThumbnailDataUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8299AFD321027A9C175F5D5DB93D0B /* WDThumbnailDataUtils.m */; };
 		76CD7C89CFCF5B25B694AE4113E7BCCB /* OCMReturnValueProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C33AFF5CCEC7A50EBFFAA49F5A7F868F /* OCMReturnValueProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		7FCC75377CAC066C79D1545EADD42138 /* EXPMatchers+beSupersetOf.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDC296E147A035034F5ED2B71E6AC58 /* EXPMatchers+beSupersetOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80D0727515D3D9FB92CC4251516C468B /* NSInvocation+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CB4E9244F55F7C740F57B61C02B10AB /* NSInvocation+OCMAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -140,7 +140,7 @@
 		CC20A87E08EB6FC85B0C896AC343EA0E /* OCProtocolMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = BA2B2028EE09E7261B90147B54538B82 /* OCProtocolMockObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CE0D813EADC2078024946B733BF03836 /* NSObject+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 30447FCFFD6347025E88815711672812 /* NSObject+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		CF73634321A958402A084B4B457EB142 /* NSValue+Expecta.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5854E3ABFBC87077D69B503FF71521 /* NSValue+Expecta.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D0CE5A4DF5038E01E67B184F4919BB8A /* WDDataUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CF74D5A55E776B9CCE7BA8F44FF25CA /* WDDataUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0CE5A4DF5038E01E67B184F4919BB8A /* WDThumbnailDataUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CF74D5A55E776B9CCE7BA8F44FF25CA /* WDThumbnailDataUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D1848C52E273FC668CB51EECE6C10DF6 /* OCMMacroState.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235AA369227F442760483BB1DDB1A00 /* OCMMacroState.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		D530F87F0047B3A28201A3E82B51F8E5 /* EXPMatchers+beSubclassOf.h in Headers */ = {isa = PBXBuildFile; fileRef = D324C97A52CF5F4569B5EA92ADB65B62 /* EXPMatchers+beSubclassOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D60BEAEB0157736C58101989D2836C10 /* OCMInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D5156ABABCFB7F67694EBB2D8D678AB1 /* OCMInvocationMatcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -215,7 +215,7 @@
 		130C636C9543595D63295207A5763201 /* OCMVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMVerifier.h; path = Source/OCMock/OCMVerifier.h; sourceTree = "<group>"; };
 		135362AA7520B68A601FB98E4D812E6C /* OCMReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMReturnValueProvider.h; path = Source/OCMock/OCMReturnValueProvider.h; sourceTree = "<group>"; };
 		19B00B257B43C3385CC2597EB7E37F56 /* Pods-WDAsyncImageThumbnail_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WDAsyncImageThumbnail_Example-frameworks.sh"; sourceTree = "<group>"; };
-		1A8299AFD321027A9C175F5D5DB93D0B /* WDDataUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WDDataUtils.m; sourceTree = "<group>"; };
+		1A8299AFD321027A9C175F5D5DB93D0B /* WDThumbnailDataUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WDThumbnailDataUtils.m; sourceTree = "<group>"; };
 		1BC542A915D34B8732675585BA4B3BB0 /* WDAsyncImageThumbnail-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WDAsyncImageThumbnail-prefix.pch"; sourceTree = "<group>"; };
 		1C03EFAD1479D6F170664579738DA81D /* Pods-WDAsyncImageThumbnail_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WDAsyncImageThumbnail_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		1CB3BA2CB8D8681D5AA8CF7EB06DC981 /* WDAsyncImageThumbnail-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WDAsyncImageThumbnail-umbrella.h"; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 		59645A6FD56A14D605566479BBC3EDCB /* EXPMatchers+beginWith.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beginWith.m"; path = "Expecta/Matchers/EXPMatchers+beginWith.m"; sourceTree = "<group>"; };
 		5AC003FE84331720C3A17B8B1A135CDF /* EXPMatchers+beSupersetOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beSupersetOf.m"; path = "Expecta/Matchers/EXPMatchers+beSupersetOf.m"; sourceTree = "<group>"; };
 		5BB0E73D85BAFF74ED2C9017CF9396F0 /* EXPMatchers+beNil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beNil.h"; path = "Expecta/Matchers/EXPMatchers+beNil.h"; sourceTree = "<group>"; };
-		5CF74D5A55E776B9CCE7BA8F44FF25CA /* WDDataUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WDDataUtils.h; sourceTree = "<group>"; };
+		5CF74D5A55E776B9CCE7BA8F44FF25CA /* WDThumbnailDataUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WDThumbnailDataUtils.h; sourceTree = "<group>"; };
 		5DBCF0E1990889209A4CDBA5B69AA157 /* EXPMatchers+beFalsy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beFalsy.m"; path = "Expecta/Matchers/EXPMatchers+beFalsy.m"; sourceTree = "<group>"; };
 		5DF92BB4E0E868A49820BB787C1D1A94 /* Pods-WDAsyncImageThumbnail_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WDAsyncImageThumbnail_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		5ECFBC4217B611A71C1DB4CAFCD0D2F1 /* EXPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPDefines.h; path = Expecta/EXPDefines.h; sourceTree = "<group>"; };
@@ -722,8 +722,8 @@
 			children = (
 				098821227A842C7642691E5E61A9B76A /* WDAsyncImageThumbnail.h */,
 				62EDE62D46FD4F42D5F1F0276C0C8C62 /* WDAsyncImageThumbnail.m */,
-				5CF74D5A55E776B9CCE7BA8F44FF25CA /* WDDataUtils.h */,
-				1A8299AFD321027A9C175F5D5DB93D0B /* WDDataUtils.m */,
+				5CF74D5A55E776B9CCE7BA8F44FF25CA /* WDThumbnailDataUtils.h */,
+				1A8299AFD321027A9C175F5D5DB93D0B /* WDThumbnailDataUtils.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -785,7 +785,7 @@
 			files = (
 				BBE23BFB5562808267929A484B864B1D /* WDAsyncImageThumbnail-umbrella.h in Headers */,
 				AA2D556C8A8233516CE46C5860C99D2C /* WDAsyncImageThumbnail.h in Headers */,
-				D0CE5A4DF5038E01E67B184F4919BB8A /* WDDataUtils.h in Headers */,
+				D0CE5A4DF5038E01E67B184F4919BB8A /* WDThumbnailDataUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1060,7 +1060,7 @@
 			files = (
 				8B0BEF4D24D68DCDF78EAAB415F4EFCE /* WDAsyncImageThumbnail-dummy.m in Sources */,
 				3D4BA5F139CCE699BD13DF16E44332DD /* WDAsyncImageThumbnail.m in Sources */,
-				75E7E0E10BBD6C2C206633A6A5A94BB8 /* WDDataUtils.m in Sources */,
+				75E7E0E10BBD6C2C206633A6A5A94BB8 /* WDThumbnailDataUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
