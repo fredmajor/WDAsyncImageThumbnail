@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4D2A1F3321E22283B5AF90AD1EB85334"
-               BlueprintName = "WDAsyncImageThumbnail"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "WDAsyncImageThumbnail.framework">
+               BuildableIdentifier = 'primary'
+               BlueprintIdentifier = '7993C14C375ED8087A5CC665'
+               BlueprintName = 'WDAsyncImageThumbnail'
+               ReferencedContainer = 'container:Pods.xcodeproj'
+               BuildableName = 'WDAsyncImageThumbnail.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

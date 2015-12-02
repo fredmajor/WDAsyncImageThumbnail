@@ -2,7 +2,7 @@
 #import <OCMock/OCMock.h>
 #import <Expecta/Expecta.h>
 #import "WDAsyncImageThumbnail.h"
-#import "WDDataUtils.h"
+#import "WDThumbnailDataUtils.h"
 
 #define WD_ASSERT_MT NSAssert([NSThread isMainThread], @"Has to be run from main thread.");
 
@@ -66,7 +66,7 @@
 
     loadSleepTime = aLoadTime;
 
-    dataUtilsMoc = [OCMockObject mockForClass:[WDDataUtils class]];
+    dataUtilsMoc = [OCMockObject mockForClass:[WDThumbnailDataUtils class]];
     [[[[dataUtilsMoc stub]
             classMethod]
             andCall:@selector(fake_newThumbnailForImage:heigth:error:) onObject:self]

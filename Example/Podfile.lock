@@ -1,7 +1,7 @@
 PODS:
   - Expecta (1.0.3)
   - OCMock (3.1.5)
-  - WDAsyncImageThumbnail (0.1.0)
+  - WDAsyncImageThumbnail (0.1.2)
 
 DEPENDENCIES:
   - Expecta
@@ -15,6 +15,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Expecta: 9d1bff6c8b0eeee73a166a2ee898892478927a15
   OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
-  WDAsyncImageThumbnail: a7bd3abd18878d627b7ff54a9b91213daa34b05a
+  WDAsyncImageThumbnail: 9c3120874d904579bcc420037101e3c6feb8dc7f
 
-COCOAPODS: 0.39.0.beta.3
+COCOAPODS: 0.39.0

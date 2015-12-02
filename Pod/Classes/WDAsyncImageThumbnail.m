@@ -185,21 +185,6 @@ static int64_t testC = 0;
                 WDAsyncImageThumbnail *strongSelf = weakSelf;
                 if( [strongSelf WD_handleLoadCancellation:strongSelf] ){return;}
 
-                @synchronized(strongSelf){
-                    __block BOOL continueLoad = YES;
-                    if( strongSelf.delegate
-                        && [strongSelf.delegate respondsToSelector:@selector(imageWillLoad:)] ){
-                        dispatch_sync(dispatch_get_main_queue(), ^{
-                            continueLoad = [strongSelf.delegate imageWillLoad:strongSelf];
-                        });
-                    }
-                    if( !continueLoad ){
-                        NSLog(@"delagate said to stop the load. Cancelling..");
-                        isCancelled = YES;
-                        if( [strongSelf WD_handleLoadCancellation:strongSelf] ){return;}
-                    }
-                }
-
                 CGImageRef pic = NULL;
                 NSError *error;
                 dispatch_semaphore_t dSema = [[strongSelf class] dispatchSemaphore];
@@ -209,6 +194,21 @@ static int64_t testC = 0;
                 @try{
                     if( [strongSelf WD_handleLoadCancellation:strongSelf] ){return;}
 
+                    @synchronized(strongSelf){
+                        __block BOOL continueLoad = YES;
+                        if( strongSelf.delegate
+                           && [strongSelf.delegate respondsToSelector:@selector(imageWillLoad:)] ){
+                            dispatch_sync(dispatch_get_main_queue(), ^{
+                                continueLoad = [strongSelf.delegate imageWillLoad:strongSelf];
+                            });
+                        }
+                        if( !continueLoad ){
+                            NSLog(@"delagate said to stop the load. Cancelling..");
+                            isCancelled = YES;
+                            if( [strongSelf WD_handleLoadCancellation:strongSelf] ){return;}
+                        }
+                    }
+                    
                     NSLog(@"actual load will start for pic=%@", [strongSelf.imageURL lastPathComponent]);
                     if( [WDThumbnailDataUtils isFilePhoto:strongSelf.imageURL] ){
                         NSError *imageLoadErr;
