@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2014-2015 Erik Doernenburg and contributors
+ *  Copyright (c) 2014-2016 Erik Doernenburg and contributors
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
  *  not use these files except in compliance with the License. You may obtain
@@ -15,7 +15,7 @@
  */
 
 #import <objc/runtime.h>
-#import "OCMFunctions.h"
+#import "OCMFunctionsPrivate.h"
 #import "OCMLocation.h"
 #import "OCClassMockObject.h"
 #import "OCPartialMockObject.h"
@@ -42,6 +42,10 @@ BOOL OCMIsObjectType(const char *objCType)
     if(strcmp(objCType, @encode(id)) == 0 || strcmp(objCType, @encode(Class)) == 0)
         return YES;
 
+    // sometimes the name of an object's class is tacked onto the type, in double quotes
+    if(strncmp(objCType, @encode(id), 1) == 0 && objCType[1] == '\"')
+        return YES;
+
     // if the returnType is a typedef to an object, it has the form ^{OriginClass=#}
     NSString *regexString = @"^\\^\\{(.*)=#.*\\}";
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexString options:0 error:NULL];
@@ -65,6 +69,26 @@ const char *OCMTypeWithoutQualifiers(const char *objCType)
     return objCType;
 }
 
+CFNumberType OCMNumberTypeForObjCType(const char *objcType)
+{
+    switch (objcType[0])
+    {
+        case 'c': return kCFNumberCharType;
+        case 'C': return kCFNumberCharType;
+        case 'B': return kCFNumberCharType;
+        case 's': return kCFNumberShortType;
+        case 'S': return kCFNumberShortType;
+        case 'i': return kCFNumberIntType;
+        case 'I': return kCFNumberIntType;
+        case 'l': return kCFNumberLongType;
+        case 'L': return kCFNumberLongType;
+        case 'q': return kCFNumberLongLongType;
+        case 'Q': return kCFNumberLongLongType;
+        case 'f': return kCFNumberFloatType;
+        case 'd': return kCFNumberDoubleType;
+        default:  return 0;
+    }
+}
 
 /*
  * Sometimes an external type is an opaque struct (which will have an @encode of "{structName}"
@@ -133,6 +157,9 @@ static BOOL OCMEqualTypesAllowingOpaqueStructsInternal(const char *type1, const 
                 return NO;
             return OCMEqualTypesAllowingOpaqueStructs(type1 + 1, type2 + 1);
 
+        case '?':
+            return type2[0] == '?';
+
         case '\0':
             return type2[0] == '\0';
 
@@ -171,19 +198,6 @@ Class OCMCreateSubclass(Class class, void *ref)
     Class subclass = objc_allocateClassPair(class, className, 0);
     objc_registerClassPair(subclass);
     return subclass;
-}
-
-
-#pragma mark  Directly manipulating the isa pointer (look away)
-
-void OCMSetIsa(id object, Class class)
-{
-    *((Class *)object) = class;
-}
-
-Class OCMGetIsa(id object)
-{
-    return *((Class *)object);
 }
 
 
