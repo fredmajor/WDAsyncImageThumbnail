@@ -125,8 +125,7 @@ static dispatch_semaphore_t loadSemaphore;
                 isCancelled = NO;
                 CGImageRef pCGImage = [self WD_getImageFromCacheSelf:self];
                 if( pCGImage ){
-                    NSLog(@"Image already in cache. No need to load.url=%@"
-                    , [self.imageURL lastPathComponent]);
+                    NSLog(@"Image already in cache. No need to load.url=%@", [self.imageURL lastPathComponent]);
                     _imageState = WD_TLI_LOAD_COMPLETED;
                     aBlock(pCGImage, nil);
                     return;
@@ -194,27 +193,27 @@ static int64_t testC = 0;
                 @try{
                     if( [strongSelf WD_handleLoadCancellation:strongSelf] ){return;}
 
+                    __block BOOL continueLoad = YES;
+                    if( strongSelf.delegate
+                        && [strongSelf.delegate respondsToSelector:@selector(imageWillLoad:)] ){
+                        dispatch_sync(dispatch_get_main_queue(), ^{
+                            continueLoad = [strongSelf.delegate imageWillLoad:strongSelf];
+                        });
+                    }
                     @synchronized(strongSelf){
-                        __block BOOL continueLoad = YES;
-                        if( strongSelf.delegate
-                           && [strongSelf.delegate respondsToSelector:@selector(imageWillLoad:)] ){
-                            dispatch_sync(dispatch_get_main_queue(), ^{
-                                continueLoad = [strongSelf.delegate imageWillLoad:strongSelf];
-                            });
-                        }
                         if( !continueLoad ){
                             NSLog(@"delagate said to stop the load. Cancelling..");
                             isCancelled = YES;
                             if( [strongSelf WD_handleLoadCancellation:strongSelf] ){return;}
                         }
                     }
-                    
+
                     NSLog(@"actual load will start for pic=%@", [strongSelf.imageURL lastPathComponent]);
                     if( [WDThumbnailDataUtils isFilePhoto:strongSelf.imageURL] ){
                         NSError *imageLoadErr;
                         pic = [WDThumbnailDataUtils newThumbnailForImage:strongSelf.imageURL
-                                           heigth:wdCollectionThumbnailMaxSize
-                                           error:&imageLoadErr];
+                                                    heigth:wdCollectionThumbnailMaxSize
+                                                    error:&imageLoadErr];
                         if( imageLoadErr ) error = imageLoadErr;
                     }else if( [WDThumbnailDataUtils isFileVideo:strongSelf.imageURL] ){
                         NSError *videoLoadErr;
@@ -262,7 +261,7 @@ static int64_t testC = 0;
                         aBlock(aPic, aErr);
                     }else{
                         NSLog(@"Image load cancelled when block was waiting to run actual callback.Url=%@"
-                        , [((WDAsyncImageThumbnail *) aSyncObj).imageURL lastPathComponent]);
+                                , [((WDAsyncImageThumbnail *) aSyncObj).imageURL lastPathComponent]);
                     }
                 }
             });
@@ -276,7 +275,7 @@ static int64_t testC = 0;
         BOOL initIsCancelled = isCancelled;
         if( isCancelled ){
             NSLog(@"image load cancelled.Url=%@"
-            , [((WDAsyncImageThumbnail *) syncObj).imageURL lastPathComponent]);
+                    , [((WDAsyncImageThumbnail *) syncObj).imageURL lastPathComponent]);
             isCancelled = NO;
             _imageState = WD_TLI_IDLE;
         }
